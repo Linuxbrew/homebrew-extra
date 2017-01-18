@@ -1,0 +1,40 @@
+language: ruby
+rvm: 2.0.0
+sudo: required
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libxml-parser-perl libxml-sax-perl
+  - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge libncurses5-dev libpcre3-dev libtinfo-dev mysql-common
+  # Fix error: Incorrect file permissions (664)
+  - chmod 0644 Formula/*.rb
+  - umask 022
+  - export TRAVIS_COMMIT="$(git rev-parse --verify -q HEAD)"
+  - if [ -f ".git/shallow" ]; then
+      travis_retry git fetch --unshallow;
+    fi
+  - HOME=/home/linuxbrew
+  - sudo mkdir $HOME
+  - sudo chown "$USER:" $HOME
+  - LINUXBREW=$HOME/.linuxbrew
+  - git clone https://github.com/Linuxbrew/brew.git $LINUXBREW
+  - export PATH="$LINUXBREW/bin:$LINUXBREW/sbin:$PATH"
+  - TRS="$(brew --repo $TRAVIS_REPO_SLUG)"
+  - rm -rf "$TRS"
+  - mkdir -p "$TRS"
+  - rsync -az "$TRAVIS_BUILD_DIR/" "$TRS"
+  - export TRAVIS_BUILD_DIR="$TRS"
+  - cd "$(brew --repo)"
+  - export HOMEBREW_DEVELOPER=1
+  - export HOMEBREW_NO_AUTO_UPDATE=1
+  - ulimit -n 1024
+  - brew tap homebrew/dupes
+  - brew tap linuxbrew/xorg
+
+script:
+  - travis_wait brew test-bot
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
