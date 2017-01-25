@@ -6,6 +6,11 @@ class Strace < Formula
   head "https://github.com/strace/strace.git"
   # tag "linuxbrew"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c1665cc4585a2788b10b5ed6c5712f8cb3833d543e81699b2c946ddf0ef92783" => :x86_64_linux
+  end
+
   depends_on "linux-headers"
   depends_on "autoconf" => :build
   depends_on "automake" => :build
