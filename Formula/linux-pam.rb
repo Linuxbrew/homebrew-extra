@@ -3,6 +3,10 @@ class LinuxPam < Formula
   homepage "http://www.linux-pam.org"
   url "http://linux-pam.org/library/Linux-PAM-1.3.0.tar.bz2"
   sha256 "241aed1ef522f66ed672719ecf2205ec513fd0075ed80cda8e086a5b1a01d1bb"
+  bottle do
+    sha256 "2ec6f52ba46005de17cba1f09c64bce633e39a73ad722d093fe08cb5fbf18771" => :x86_64_linux
+  end
+
   # tag "linuxbrew"
 
   depends_on "pkg-config" => :build
