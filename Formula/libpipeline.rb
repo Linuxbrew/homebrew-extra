@@ -1,9 +1,8 @@
 class Libpipeline < Formula
   desc "Library for manipulating pipelines of subprocesses"
   homepage "http://libpipeline.nongnu.org/"
-  url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.3.1.tar.gz"
-  sha256 "5cad1b446f135ec3800d32c8c951a1114f4c438609a4c52b262c30301bc8e692"
-  # tag "linuxbrew"
+  url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.4.1.tar.gz"
+  sha256 "da46d7b20163aadb9db2faae483f734e9096a7550c84b94029abeab62dd1b9ee"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +17,6 @@ class Libpipeline < Formula
 
   def install
     system "./configure",
-      "--disable-debug",
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--prefix=#{prefix}"
