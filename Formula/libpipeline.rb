@@ -19,4 +19,20 @@ class Libpipeline < Formula
       "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"input.txt").write "a\nb"
+    (testpath/"test.c").write <<-EOS.undent
+      #include <pipeline.h>
+
+      int main(int argc, char** argv) {
+        pipeline* p = pipeline_new();
+        pipeline_want_infile(p, "input.txt");
+        pipeline_command_args(p, "grep", "b", NULL);
+        return pipeline_run(p);
+      }
+    EOS
+    system ENV.cc, "test.c", "-o", "test", "-lpipeline"
+    assert_equal "b", shell_output("./test").strip
+  end
 end
