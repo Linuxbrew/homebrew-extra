@@ -5,6 +5,10 @@ class ManDb < Formula
   sha256 "8d65559838fccca774e3ef7c15c073180c786e728785c735e136297facca41fc"
   # tag "linuxbrew"
 
+  bottle do
+    sha256 "4437811b171f2e4f9831a87a7c435dab3224011506246628449700838f7869fe" => :x86_64_linux
+  end
+
   head do
     url "git://git.sv.gnu.org/man-db.git"
     depends_on "autoconf" => :build
