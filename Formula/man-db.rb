@@ -5,7 +5,7 @@ class ManDb < Formula
   sha256 "08edbc52f24aca3eebac429b5444efd48b9b90b9b84ca0ed5507e5c13ed10f3f"
 
   bottle do
-    sha256 "4437811b171f2e4f9831a87a7c435dab3224011506246628449700838f7869fe" => :x86_64_linux
+    sha256 "257b1e6ea087db50d64108c93f14b4d0d0f994aab17db3a1f87f3be84a9d049e" => :x86_64_linux
   end
 
   head do
