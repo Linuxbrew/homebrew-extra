@@ -1,6 +1,8 @@
 language: ruby
+os: linux
 rvm: 2.0.0
 sudo: required
+dist: trusty
 
 before_install:
   - sudo apt-get -qq update
@@ -8,27 +10,43 @@ before_install:
   - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge
       libblas-dev
       libbz2-dev
+      libexpat1-dev
+      libffi-dev
+      libfontconfig1-dev
       libfreetype6-dev
+      libgcrypt11-dev
       libgdbm-dev
+      libgl1-mesa-dev
+      libgmp-dev
       libicu-dev
       libidn11-dev
+      libjack-dev
+      libjack-jackd2-0
+      libjack-jackd2-dev
+      libjack0
       libjasper-dev
       libjbig-dev
       libkrb5-dev
+      libldap2-dev
+      libltdl-dev
       liblzma-dev
       libncurses5-dev
+      libossp-uuid-dev
       libpcre3-dev
+      libpq-dev
+      libsasl2-dev
       libtinfo-dev
       libwebp-dev
       libwmf-dev
       libx11-dev
       libxml2-dev
+      libyaml-dev
       llvm-3.4
       mysql-common
+      unixodbc-dev
       zlib1g-dev
-  # Fix error: Incorrect file permissions (664)
-  - chmod 0644 Formula/*.rb
-  - umask 022
+  - git config --global user.name "Travis CI"
+  - git config --global user.email "travis-ci@linuxbrew.sh"
   - export TRAVIS_COMMIT="$(git rev-parse --verify -q HEAD)"
   - if [ -f ".git/shallow" ]; then
       travis_retry git fetch --unshallow;
@@ -37,19 +55,23 @@ before_install:
   - sudo mkdir $HOME
   - sudo chown "$USER:" $HOME
   - LINUXBREW=$HOME/.linuxbrew
-  - git clone https://github.com/Linuxbrew/brew $LINUXBREW
+  - mkdir -p $LINUXBREW/bin
+  - git clone --depth=1 https://github.com/Linuxbrew/brew "$LINUXBREW/Homebrew"
+  - ln -s ../Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/
   - export PATH="$LINUXBREW/bin:$LINUXBREW/sbin:$PATH"
-  - TRS="$(brew --repo $TRAVIS_REPO_SLUG)"
-  - rm -rf "$TRS"
-  - mkdir -p "$TRS"
-  - rsync -az "$TRAVIS_BUILD_DIR/" "$TRS"
-  - export TRAVIS_BUILD_DIR="$TRS"
-  - cd "$(brew --repo)"
+  - HOMEBREW_TAP_DIR="$(brew --repo "$TRAVIS_REPO_SLUG")"
+  - rm -rf "$HOMEBREW_TAP_DIR"
+  - mkdir -p "$(dirname "$HOMEBREW_TAP_DIR")"
+  - ln -s "$PWD" "$HOMEBREW_TAP_DIR"
+  # Fix error: Incorrect file permissions (664)
+  - chmod 0644 Formula/*.rb
+  - umask 022
   - export HOMEBREW_DEVELOPER=1
   - export HOMEBREW_NO_AUTO_UPDATE=1
   - export HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
+  - env | grep TRAVIS | tee /tmp/travis.env
   - ulimit -n 1024
-  - brew tap homebrew/dupes
+  - brew tap homebrew/science
   - brew tap linuxbrew/xorg
 
 script:
