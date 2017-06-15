@@ -1,9 +1,8 @@
 class Strace < Formula
   desc "Diagnostic, instructional, and debugging tool for the Linux kernel"
   homepage "https://strace.io/"
-  url "https://github.com/strace/strace/archive/v4.16.tar.gz"
-  sha256 "4a6dcf63f2b3e49b840380396d2a8a5a4fb30ca12f953d82c16236bfe620e45a"
-  head "https://github.com/strace/strace.git"
+  url "https://downloads.sourceforge.net/project/strace/strace/4.17/strace-4.17.tar.xz"
+  sha256 "81f35b085fbb3cfa806eb521a8522ac3406deaccfe121ce35064bad268237419"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,13 +10,16 @@ class Strace < Formula
   end
 
   depends_on "linux-headers"
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+
+  head do
+    url "https://github.com/strace/strace.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
 
   def install
-    system "./bootstrap"
+    system "./bootstrap" if build.head?
     system "./configure",
-      "--disable-debug",
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--prefix=#{prefix}"
