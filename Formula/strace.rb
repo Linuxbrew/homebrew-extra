@@ -5,8 +5,7 @@ class Strace < Formula
   sha256 "81f35b085fbb3cfa806eb521a8522ac3406deaccfe121ce35064bad268237419"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e10400bee5b8b59578631915aabc7cde892dc7038ecd1a591d99bedeee4119ba" => :x86_64_linux
+    sha256 "a88334dff8142b5b45ec73cdbb702946ad7c890be7a40b4e6baa2c25a620eb50" => :x86_64_linux
   end
 
   depends_on "linux-headers"
