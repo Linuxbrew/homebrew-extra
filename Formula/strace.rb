@@ -8,13 +8,13 @@ class Strace < Formula
     sha256 "a88334dff8142b5b45ec73cdbb702946ad7c890be7a40b4e6baa2c25a620eb50" => :x86_64_linux
   end
 
-  depends_on "linux-headers"
-
   head do
     url "https://github.com/strace/strace.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
+
+  depends_on "linux-headers"
 
   def install
     system "./bootstrap" if build.head?
