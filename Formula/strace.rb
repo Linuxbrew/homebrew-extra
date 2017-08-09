@@ -1,8 +1,8 @@
 class Strace < Formula
   desc "Diagnostic, instructional, and debugging tool for the Linux kernel"
   homepage "https://strace.io/"
-  url "https://downloads.sourceforge.net/project/strace/strace/4.17/strace-4.17.tar.xz"
-  sha256 "81f35b085fbb3cfa806eb521a8522ac3406deaccfe121ce35064bad268237419"
+  url "https://downloads.sourceforge.net/project/strace/strace/4.18/strace-4.18.tar.xz"
+  sha256 "89ad887c1e6226bdbca8da31d589cadea4be0744b142eb47b768086c937fca08"
 
   bottle do
     sha256 "a88334dff8142b5b45ec73cdbb702946ad7c890be7a40b4e6baa2c25a620eb50" => :x86_64_linux
