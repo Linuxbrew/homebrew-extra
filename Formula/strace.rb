@@ -5,7 +5,7 @@ class Strace < Formula
   sha256 "89ad887c1e6226bdbca8da31d589cadea4be0744b142eb47b768086c937fca08"
 
   bottle do
-    sha256 "a88334dff8142b5b45ec73cdbb702946ad7c890be7a40b4e6baa2c25a620eb50" => :x86_64_linux
+    sha256 "4ceb8a2b4c14e0dec4e07e8b2684d3f08bb9d134b9de1158d8f493ff4f393efd" => :x86_64_linux
   end
 
   head do
