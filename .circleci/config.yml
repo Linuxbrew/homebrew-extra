@@ -2,26 +2,20 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ubuntu:trusty
+      - image: linuxbrew/linuxbrew
     environment:
       HOMEBREW_DEVELOPER: 1
       HOMEBREW_NO_AUTO_UPDATE: 1
       HOMEBREW_VERBOSE: 1
       HOMEBREW_VERBOSE_USING_DOTS: 1
     steps:
-      - run: |
-          localedef -i en_US -f UTF-8 en_US.UTF-8
-          useradd -m -s /bin/bash linuxbrew
-          echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
-      - run: |
-          apt-get update
-          apt-get install -y git
       - checkout
       - run: git remote set-url origin $CIRCLE_REPOSITORY_URL
       - run: if [ -e .git/shallow ]; then echo git fetch --unshallow; fi
       - run: git fetch origin
       - run: git config --global user.name LinuxbrewTestBot
       - run: git config --global user.email testbot@linuxbrew.sh
+      - run: rm -rf /home/linuxbrew/.linuxbrew
       - run: sudo mkdir -p /home/linuxbrew/.linuxbrew/bin
       - run: sudo chown -R "$USER:" /home/linuxbrew
       - run: git clone https://github.com/Linuxbrew/brew /home/linuxbrew/.linuxbrew/Homebrew
@@ -73,14 +67,12 @@ jobs:
       - run: sudo ln -sf /usr/lib/x86_64-linux-gnu/libruby-2.0.so /usr/lib/x86_64-linux-gnu/libruby.so
       - run: sudo rm -rf /opt/circleci /usr/local/*
       - run: >-
-          sudo -u linuxbrew sh -c '
           umask 022;
           PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
           brew install patchelf
           && brew tap homebrew/science
           && brew tap linuxbrew/xorg
           && brew test-bot
-          '
       - run: mv *bottle*.json *.tar.gz $CIRCLE_ARTIFACTS/ || true
 notify:
   webhooks:
