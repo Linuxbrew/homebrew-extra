@@ -1,0 +1,87 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ubuntu:trusty
+    environment:
+      HOMEBREW_DEVELOPER: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_VERBOSE: 1
+      HOMEBREW_VERBOSE_USING_DOTS: 1
+    steps:
+      - run: |
+          localedef -i en_US -f UTF-8 en_US.UTF-8
+          useradd -m -s /bin/bash linuxbrew
+          echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
+      - run: |
+          apt-get update
+          apt-get install -y git
+      - checkout
+      - run: git remote set-url origin $CIRCLE_REPOSITORY_URL
+      - run: if [ -e .git/shallow ]; then echo git fetch --unshallow; fi
+      - run: git fetch origin
+      - run: git config --global user.name LinuxbrewTestBot
+      - run: git config --global user.email testbot@linuxbrew.sh
+      - run: sudo mkdir -p /home/linuxbrew/.linuxbrew/bin
+      - run: sudo chown -R "$USER:" /home/linuxbrew
+      - run: git clone https://github.com/Linuxbrew/brew /home/linuxbrew/.linuxbrew/Homebrew
+      - run: ln -s ../Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/
+      - run: chmod 0644 Formula/*.rb
+      - run: mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/linuxbrew
+      - run: rsync -az . /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/linuxbrew/$CIRCLE_PROJECT_REPONAME
+      - run: sudo apt-get install -y curl g++ libperl-dev libxml-parser-perl libxml-sax-perl make python-dev ruby2.0 ruby2.0-dev subversion wbritish
+      - run: DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge
+          libblas-dev
+          libbz2-dev
+          libexpat1-dev
+          libffi-dev
+          libfontconfig1-dev
+          libfreetype6-dev
+          libgcrypt11-dev
+          libgdbm-dev
+          libgl1-mesa-dev
+          libgmp-dev
+          libicu-dev
+          libidn11-dev
+          libjack-dev
+          libjack-jackd2-0
+          libjack-jackd2-dev
+          libjack0
+          libjasper-dev
+          libjbig-dev
+          libkrb5-dev
+          libldap2-dev
+          libltdl-dev
+          liblzma-dev
+          libncurses5-dev
+          libossp-uuid-dev
+          libpcre3-dev
+          libpq-dev
+          libsasl2-dev
+          libtinfo-dev
+          libwebp-dev
+          libwmf-dev
+          libx11-dev
+          libxml2-dev
+          libyaml-dev
+          llvm-3.4
+          mysql-common
+          unixodbc-dev
+          zlib1g-dev
+      - run: sudo ln -sf ruby2.0 /usr/bin/ruby
+      - run: sudo ln -sf gem2.0 /usr/bin/gem
+      - run: sudo ln -sf /usr/lib/x86_64-linux-gnu/libruby-2.0.so /usr/lib/x86_64-linux-gnu/libruby.so
+      - run: sudo rm -rf /opt/circleci /usr/local/*
+      - run: >-
+          sudo -u linuxbrew sh -c '
+          umask 022;
+          PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
+          brew install patchelf
+          && brew tap homebrew/science
+          && brew tap linuxbrew/xorg
+          && brew test-bot
+          '
+      - run: mv *bottle*.json *.tar.gz $CIRCLE_ARTIFACTS/ || true
+notify:
+  webhooks:
+    - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/LinuxbrewTestBot
