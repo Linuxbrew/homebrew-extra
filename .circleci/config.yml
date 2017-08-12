@@ -18,9 +18,8 @@ jobs:
       - run: git fetch origin
       - run: git config --global user.name LinuxbrewTestBot
       - run: git config --global user.email testbot@linuxbrew.sh
-      - run: rm -rf /home/linuxbrew/.linuxbrew
-      - run: sudo mkdir -p /home/linuxbrew/.linuxbrew/bin
-      - run: sudo chown -R "$USER:" /home/linuxbrew
+      - run: sudo rm -rf /home/linuxbrew/.linuxbrew
+      - run: mkdir -p /home/linuxbrew/.linuxbrew/bin
       - run: git clone https://github.com/Linuxbrew/brew /home/linuxbrew/.linuxbrew/Homebrew
       - run: ln -s ../Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/
       - run: chmod 0644 Formula/*.rb
