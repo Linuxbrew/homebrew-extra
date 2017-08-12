@@ -33,7 +33,6 @@ jobs:
           && brew tap homebrew/science
           && brew tap linuxbrew/xorg
           && brew test-bot
-      - run: ls *bottle*.json *.tar.gz || true
       - store_artifacts:
           path: /home/linuxbrew/bottles
 notify:
