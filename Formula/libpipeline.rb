@@ -5,7 +5,8 @@ class Libpipeline < Formula
   sha256 "fef1fc9aa40ce8796f18cd1aecd888a9484a9556c8b0f8d07c863578277679be"
 
   bottle do
-    sha256 "1aadf9bcd7d5a8d974599654e9359163fda482caab1bfc104e97e7a8cbd7f1e7" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "5f78aec8fe4563fb1768a7027112d7430ca99a200d41941193cb380ec70fc7e9" => :x86_64_linux
   end
 
   head do
