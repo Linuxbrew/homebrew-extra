@@ -25,14 +25,18 @@ jobs:
       - run: chmod 0644 Formula/*.rb
       - run: mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/linuxbrew
       - run: rsync -az . /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/linuxbrew/$CIRCLE_PROJECT_REPONAME
+      - run: mkdir /home/linuxbrew/bottles
       - run: >-
+          cd /home/linuxbrew/bottles;
           umask 022;
           PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
           brew install patchelf
           && brew tap homebrew/science
           && brew tap linuxbrew/xorg
           && brew test-bot
-      - run: mv *bottle*.json *.tar.gz $CIRCLE_ARTIFACTS/ || true
+      - run: ls *bottle*.json *.tar.gz || true
+      - store_artifacts:
+          path: /home/linuxbrew/bottles
 notify:
   webhooks:
     - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/LinuxbrewTestBot
