@@ -5,6 +5,11 @@ class Iotop < Formula
   sha256 "3adea2a24eda49bbbaeb4e6ed2042355b441dbd7161e883067a02bfc8dcef75b"
   head "git://repo.or.cz/iotop.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "37406667cc6ad1a504bf24e194b986ec2c45799c36c8b87e090a20a5c1be6bb1" => :x86_64_linux
+  end
+
   depends_on :python
 
   def install
