@@ -3,6 +3,7 @@ class ManDb < Formula
   homepage "http://man-db.nongnu.org/"
   url "https://download.savannah.gnu.org/releases/man-db/man-db-2.7.6.1.tar.xz"
   sha256 "08edbc52f24aca3eebac429b5444efd48b9b90b9b84ca0ed5507e5c13ed10f3f"
+  revision 1
 
   bottle do
     sha256 "257b1e6ea087db50d64108c93f14b4d0d0f994aab17db3a1f87f3be84a9d049e" => :x86_64_linux
@@ -34,6 +35,6 @@ class ManDb < Formula
   end
 
   test do
-    system "#{bin}/man", "--version"
+    assert_match "Usage", shell_output("#{bin}/man --help")
   end
 end
