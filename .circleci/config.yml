@@ -21,16 +21,16 @@ jobs:
       - run: git config --global user.name LinuxbrewTestBot
       - run: git config --global user.email testbot@linuxbrew.sh
       - run: chmod 0644 Formula/*.rb
-      - run: mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew
-      - run: cp -a . /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/$CIRCLE_PROJECT_REPONAME
+      - run: mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/$CIRCLE_PROJECT_USERNAME
+      - run: cp -a . /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
       - run: |
           mkdir /tmp/bottles
           cd /tmp/bottles
-          umask 022;
-          PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
+          umask 022
+          PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
           brew install patchelf
           brew tap linuxbrew/xorg
-          brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
+          brew test-bot --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh
       - store_artifacts:
           path: /tmp/bottles
           destination: bottles
@@ -38,4 +38,4 @@ jobs:
           path: /tmp/bottles
 notify:
   webhooks:
-    - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/ci-upload?keep-old=1
+    - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/ci-upload
