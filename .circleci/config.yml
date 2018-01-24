@@ -7,8 +7,6 @@ jobs:
       CIRCLE_REPOSITORY_URL: https://github.com/linuxbrew/homebrew-extra
       HOMEBREW_DEVELOPER: 1
       HOMEBREW_NO_AUTO_UPDATE: 1
-      HOMEBREW_VERBOSE: 1
-      HOMEBREW_VERBOSE_USING_DOTS: 1
     steps:
       - run: |
           cd /home/linuxbrew/.linuxbrew/Homebrew
@@ -30,7 +28,7 @@ jobs:
           PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
           brew install patchelf
           brew tap linuxbrew/xorg
-          brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
+          brew test-bot --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
       - store_artifacts:
           path: /tmp/bottles
           destination: bottles
@@ -38,4 +36,4 @@ jobs:
           path: /tmp/bottles
 notify:
   webhooks:
-    - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/ci-upload?keep-old=1
+    - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/ci-upload
