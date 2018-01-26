@@ -25,7 +25,7 @@ class Libpipeline < Formula
 
   test do
     (testpath/"input.txt").write "a\nb"
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <pipeline.h>
 
       int main(int argc, char** argv) {
