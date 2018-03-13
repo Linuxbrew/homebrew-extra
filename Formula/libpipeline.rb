@@ -1,8 +1,8 @@
 class Libpipeline < Formula
   desc "Library for manipulating pipelines of subprocesses"
   homepage "http://libpipeline.nongnu.org/"
-  url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.4.2.tar.gz"
-  sha256 "fef1fc9aa40ce8796f18cd1aecd888a9484a9556c8b0f8d07c863578277679be"
+  url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.0.tar.gz"
+  sha256 "0d72e12e4f2afff67fd7b9df0a24d7ba42b5a7c9211ac5b3dcccc5cd8b286f2b"
 
   bottle do
     cellar :any_skip_relocation
