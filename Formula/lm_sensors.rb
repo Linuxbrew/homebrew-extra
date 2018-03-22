@@ -5,6 +5,10 @@ class LmSensors < Formula
   mirror "ftp://ftp.gwdg.de/pub/linux/misc/lm-sensors/lm_sensors-3.4.0.tar.bz2"
   sha256 "e0579016081a262dd23eafe1d22b41ebde78921e73a1dcef71e05e424340061f"
 
+  bottle do
+    sha256 "cc4ce6897b9200d05ad1990beb44d166afa0d2a3e93c7db0a2f370f26cd4ef6f" => :x86_64_linux
+  end
+
   depends_on "bison" => :build
   depends_on "flex" => :build
 
