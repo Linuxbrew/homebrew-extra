@@ -6,7 +6,7 @@ class Libpipeline < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5f78aec8fe4563fb1768a7027112d7430ca99a200d41941193cb380ec70fc7e9" => :x86_64_linux
+    sha256 "c215e44f58164be63ef9ce03873a3c6681b805bf1e11de9309da6ec7b7e967f4" => :x86_64_linux
   end
 
   head do
