@@ -8,8 +8,8 @@ in [Linuxbrew Core](https://github.com/Linuxbrew/homebrew-core).
 
 ### Method 1
 ```
-$ brew tap linuxbrew/extra # needed only once
-$ brew install <formula>
+brew tap linuxbrew/extra # needed only once
+brew install <formula>
 ```
 
 ### Method 2
