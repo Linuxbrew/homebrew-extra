@@ -4,6 +4,11 @@ class SgmlCommon < Formula
   url "https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz"
   sha256 "7dc418c1d361123ffc5e45d61f1b97257940a8eb35d0bfbbc493381cc5b1f959"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "0534d6147ae703b89d66ed8856f4d6177f6d7303ba0090da5a2d2e8ef5f44bc8" => :x86_64_linux
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
