@@ -6,7 +6,7 @@ formulae for [Linuxbrew](https://github.com/Linuxbrew/brew) that are not depende
 
 ## How do I install these formulae?
 
-Assuming that you have [Linuxbrew/brew](https://github.com/Linuxbrew/brew) instlled, execute:
+Assuming that you have [Linuxbrew/brew](https://github.com/Linuxbrew/brew) installed, execute:
 
 ### Method 1
 ```
@@ -23,7 +23,7 @@ This will automatically add this repository to the list of repositories in your 
 
 ### Method 3
 
-Just like any other formula, you can install any Linuxbrew/extra formula _via_ its URL (in which case they will not be automatically updated with `brew update`):
+Just like any other formula, you can install any Linuxbrew/extra formula _via_ its URL:
 
 ```
 brew install https://raw.githubusercontent.com/Linuxbrew/homebrew-extra/master/Formula/<formula>.rb
@@ -31,8 +31,8 @@ brew install https://raw.githubusercontent.com/Linuxbrew/homebrew-extra/master/F
 
 ## Contributing
 
-Do you have a package that is not a dependency of formulae in Linuxbrew/core?
-Open an [Issue](https://github.com/Linuxbrew/homebrew-extra/issues/new) with your request or submit a Pull Request!
+- Do you have or know of a software package or tools that is not a dependency of any formulae in Linuxbrew/core? You've come to the right place!
+- Open an [Issue](https://github.com/Linuxbrew/homebrew-extra/issues/new) with your request or submit a Pull Request!
 
 ## Documentation
 
