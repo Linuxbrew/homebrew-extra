@@ -28,4 +28,4 @@ Open an [Issue](https://github.com/Linuxbrew/homebrew-extra/issues/new) or submi
 
 ## Documentation
 
-To learn more about Linuxbrew see `brew help`, `man brew`, or [Homebrew's documentation](https://github.com/Homebrew/brew/tree/master/docs#readme).
+To learn more about Linuxbrew, see `brew help`, `man brew`, or [Homebrew's documentation](https://github.com/Homebrew/brew/tree/master/docs#readme).
