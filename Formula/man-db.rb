@@ -1,9 +1,8 @@
 class ManDb < Formula
   desc "Unix documentation system"
   homepage "http://man-db.nongnu.org/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.7.6.1.tar.xz"
-  sha256 "08edbc52f24aca3eebac429b5444efd48b9b90b9b84ca0ed5507e5c13ed10f3f"
-  revision 1
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.8.3.tar.xz"
+  sha256 "5932a1ca366e1ec61a3ece1a3afa0e92f2fdc125b61d236f20cc6ff9d80cc4ac"
 
   bottle do
     sha256 "a02d6504d21b5b08f05477d63f9503ef7ec981ccdf2b976a8b69d2c859d1b879" => :x86_64_linux
@@ -18,6 +17,7 @@ class ManDb < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libpipeline"
+
   unless OS.mac?
     depends_on "gdbm"
     depends_on "groff"
