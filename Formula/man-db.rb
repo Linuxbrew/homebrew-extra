@@ -5,7 +5,8 @@ class ManDb < Formula
   sha256 "5932a1ca366e1ec61a3ece1a3afa0e92f2fdc125b61d236f20cc6ff9d80cc4ac"
 
   bottle do
-    sha256 "a02d6504d21b5b08f05477d63f9503ef7ec981ccdf2b976a8b69d2c859d1b879" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-extra"
+    sha256 "c2508ff862d57e2bd99388d7bd58656bce941e784a5192c53069d64f2fe29bcc" => :x86_64_linux
   end
 
   head do
