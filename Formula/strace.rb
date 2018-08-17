@@ -1,8 +1,8 @@
 class Strace < Formula
   desc "Diagnostic, instructional, and debugging tool for the Linux kernel"
   homepage "https://strace.io/"
-  url "https://downloads.sourceforge.net/project/strace/strace/4.18/strace-4.18.tar.xz"
-  sha256 "89ad887c1e6226bdbca8da31d589cadea4be0744b142eb47b768086c937fca08"
+  url "https://github.com/strace/strace/releases/download/v4.24/strace-4.24.tar.xz"
+  sha256 "1f4e59fc1edfa2bfb4adf2a748623dc25b105ec79713dd84404199f91b0b0634"
 
   bottle do
     sha256 "4ceb8a2b4c14e0dec4e07e8b2684d3f08bb9d134b9de1158d8f493ff4f393efd" => :x86_64_linux
@@ -21,7 +21,8 @@ class Strace < Formula
     system "./configure",
       "--disable-dependency-tracking",
       "--disable-silent-rules",
-      "--prefix=#{prefix}"
+      "--prefix=#{prefix}",
+      "--enable-mpers=no" # FIX: configure: error: Cannot enable m32 personality support
     system "make", "install"
   end
 
