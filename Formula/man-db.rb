@@ -1,8 +1,8 @@
 class ManDb < Formula
   desc "Unix documentation system"
   homepage "http://man-db.nongnu.org/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.8.3.tar.xz"
-  sha256 "5932a1ca366e1ec61a3ece1a3afa0e92f2fdc125b61d236f20cc6ff9d80cc4ac"
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.8.4.tar.xz"
+  sha256 "103c185f9d8269b9ee3b8a4cb27912b3aa393e952731ef96fedc880723472bc3"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles-extra"
