@@ -1,10 +1,9 @@
 class LinuxPam < Formula
   desc "Pluggable Authentication Modules for Linux"
   homepage "http://www.linux-pam.org"
-  url "http://linux-pam.org/library/Linux-PAM-1.3.0.tar.bz2"
-  sha256 "241aed1ef522f66ed672719ecf2205ec513fd0075ed80cda8e086a5b1a01d1bb"
-  revision 1
-  # tag "linuxbrew"
+  url "https://github.com/linux-pam/linux-pam/releases/download/v1.3.1/Linux-PAM-1.3.1.tar.xz"
+  sha256 "eff47a4ecd833fbf18de9686632a70ee8d0794b79aecb217ebd0ce11db4cd0db"
+  head "https://github.com/linux-pam/linux-pam.git"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles-extra"
