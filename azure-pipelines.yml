@@ -1,0 +1,16 @@
+jobs:
+- job: Linux
+  pool:
+    vmImage: ubuntu-16.04
+  steps:
+    - displayName: Run brew test-bot
+      env:
+        HOMEBREW_GITHUB_API_TOKEN: $(github.publicApiToken)
+      bash: |
+        git clone https://github.com/Homebrew/brew /home/linuxbrew/.linuxbrew/Homebrew
+        mkdir -p /home/linuxbrew/.linuxbrew/bin
+        ln -s ../Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/
+        mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/linuxbrew
+        mv "$PWD" /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/linuxbrew/homebrew-extra/
+        /home/linuxbrew/.linuxbrew/bin/brew install patchelf
+        /home/linuxbrew/.linuxbrew/bin/brew test-bot --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh
