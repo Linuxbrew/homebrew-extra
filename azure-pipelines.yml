@@ -20,3 +20,4 @@ jobs:
       env:
         HOMEBREW_GITHUB_API_TOKEN: $(github.publicApiToken)
         HOMEBREW_NO_ANALYTICS: 1
+        HOMEBREW_NO_AUTO_UPDATE: 1
