@@ -7,7 +7,7 @@ class LinuxPam < Formula
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles-extra"
-    sha256 "cd4a6dab3977d9c946f131e76e9d7781c3cb5c7fc772d1205ad69b245221139c" => :x86_64_linux
+    sha256 "172b34a408deb920569879326b57510eb384068bc4df8146b702be3d26284aef" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
