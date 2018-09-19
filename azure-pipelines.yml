@@ -5,6 +5,8 @@ jobs:
   steps:
     - bash: |
         set -eux
+        git fetch origin "master:master" "pull/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER/head:pr"
+        git checkout pr
         sudo mkdir /home/linuxbrew
         sudo chown "$USER" /home/linuxbrew
         git config --global user.name LinuxbrewTestBot
