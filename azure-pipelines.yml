@@ -4,9 +4,12 @@ jobs:
     vmImage: ubuntu-16.04
   steps:
     - bash: |
-        set -eux
-        git fetch origin "master:master" "pull/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER/head:pr"
-        git checkout pr
+        set -ex
+        if [[ -n "$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER" ]]; then
+          git fetch origin "master:master" "pull/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER/head:pr"
+          git checkout pr
+        fi
+        set -u
         sudo mkdir /home/linuxbrew
         sudo chown "$USER" /home/linuxbrew
         git config --global user.name LinuxbrewTestBot
