@@ -34,7 +34,7 @@ First, please make sure that [the formula belongs in this tap](#what-formulae-be
 
 ## What formulae belong here?
 
-* A new formula that works on Mac or Linux should go in Homebrew/linuxbrew-core.
+* A new formula that works on Mac or Linux should go in Homebrew/homebrew-core, with fixes for Linux put in Homebrew/linuxbrew-core.
 * A new formula that is Linux-only, and a formula in Homebrew/linuxbrew-core depends on it, should go in Homebrew/linuxbrew-core.
 * A new formula that is Linux-only, and no formula in Homebrew/linuxbrew-core depends on it, should go in Linuxbrew/linuxbrew-extra.
 
