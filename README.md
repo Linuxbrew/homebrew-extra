@@ -1,12 +1,10 @@
 # Linuxbrew Extra
 
-[Linuxbrew Extra](https://github.com/Linuxbrew/homebrew-extra) is a collection of
-formulae for [Linuxbrew](https://github.com/Linuxbrew/brew) that are not dependencies of
-[Linuxbrew core formulae](https://github.com/Linuxbrew/homebrew-core) and are specific to Linux.
+[Linuxbrew Extra](https://github.com/Linuxbrew/homebrew-extra) is a collection of formulae for [Homebrew on Linux](https://github.com/Homebrew/brew) that are not dependencies of [core formulae](https://github.com/Homebrew/linuxbrew-core) and are specific to Linux.
 
 ## How do I install these formulae?
 
-First, install [Linuxbrew](https://linuxbrew.sh).
+First, install [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux)
 
 Then:
 
@@ -20,7 +18,7 @@ or
 
 ## Contributing
 
-Have or know of a software package that is not a dependency of any formulae in [Linuxbrew/core](https://github.com/Linuxbrew/homebrew-core)?
+Have or know of a software package that is not a dependency of any formulae in [Homebrew/linuxbrew-core](https://github.com/Homebrew/linuxbrew-core)?
 
 You've come to the right place!
 
@@ -28,4 +26,4 @@ Open an [Issue](https://github.com/Linuxbrew/homebrew-extra/issues/new) or submi
 
 ## Documentation
 
-To learn more about Linuxbrew, see `brew help`, `man brew`, or [Homebrew's documentation](https://github.com/Homebrew/brew/tree/master/docs#readme).
+To learn more about Homebrew on Linux, see `brew help`, `man brew`, or [Homebrew's documentation](https://github.com/Homebrew/brew/tree/master/docs#readme).
