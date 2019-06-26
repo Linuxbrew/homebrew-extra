@@ -4,6 +4,11 @@ class AwsVault < Formula
   url "https://github.com/99designs/aws-vault/archive/v4.6.0.tar.gz"
   sha256 "058f20dcfafad2641c35b6970909d0dedd71db66450d820f8f1fb457abcf50a0"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "99a3988e3a2134ae486c1cc8f3aa1e7e12f70c845c7d465d04c5267183a28fc8" => :x86_64_linux
+  end
+
   depends_on "go" => :build
 
   def install
