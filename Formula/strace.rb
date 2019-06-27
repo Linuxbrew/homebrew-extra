@@ -1,8 +1,8 @@
 class Strace < Formula
   desc "Diagnostic, instructional, and debugging tool for the Linux kernel"
   homepage "https://strace.io/"
-  url "https://github.com/strace/strace/releases/download/v4.24/strace-4.24.tar.xz"
-  sha256 "1f4e59fc1edfa2bfb4adf2a748623dc25b105ec79713dd84404199f91b0b0634"
+  url "https://github.com/strace/strace/releases/download/v5.1/strace-5.1.tar.xz"
+  sha256 "f5a341b97d7da88ee3760626872a4899bf23cf8dee56901f114be5b1837a9a8b"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles-extra"
