@@ -1,8 +1,8 @@
 class AwsVault < Formula
   desc "Securely store and access AWS credentials in development environments"
   homepage "https://github.com/99designs/aws-vault"
-  url "https://github.com/99designs/aws-vault/archive/v4.6.0.tar.gz"
-  sha256 "058f20dcfafad2641c35b6970909d0dedd71db66450d820f8f1fb457abcf50a0"
+  url "https://github.com/99designs/aws-vault/archive/v4.6.1.tar.gz"
+  sha256 "7e4a6195fdbdf4a4e9bac4ce790d7463bba03da0cdcc81fcbca3dd9415027f1e"
 
   bottle do
     cellar :any_skip_relocation
