@@ -5,9 +5,8 @@ class Strace < Formula
   sha256 "f5a341b97d7da88ee3760626872a4899bf23cf8dee56901f114be5b1837a9a8b"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-extra"
     cellar :any_skip_relocation
-    sha256 "e83c8b2aeb483058f12c30389181fa51be6a9fee3222cc0c9b6ee6ca662afebd" => :x86_64_linux
+    sha256 "2998e9e73d67d1670c9606f6cf896f1ba90db7668f82a884e7f2936856abb785" => :x86_64_linux
   end
 
   head do
