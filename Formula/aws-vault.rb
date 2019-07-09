@@ -7,7 +7,7 @@ class AwsVault < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2381713e06fd1412d421e4f3d6e84eabe54d5c6267be371fb2659272553e9052" => :x86_64_linux
+    sha256 "1747b69ac2c092e9e5134ad121791feb5cfa2f91393d692b34a1b91338b6d979" => :x86_64_linux
   end
 
   depends_on "go" => :build
