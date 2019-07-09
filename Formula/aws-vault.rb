@@ -15,7 +15,9 @@ class AwsVault < Formula
     ENV["GOOS"] = "linux"
     ENV["GOARCH"] = "amd64"
 
-    system "make", "build"
+    flags = "-X main.Version=#{version} -s -w"
+
+    system "go", "build", "-ldflags=#{flags}"
     bin.install "aws-vault"
 
     zsh_completion.install "completions/zsh/_aws-vault"
