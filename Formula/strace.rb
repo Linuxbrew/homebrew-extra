@@ -1,8 +1,8 @@
 class Strace < Formula
   desc "Diagnostic, instructional, and debugging tool for the Linux kernel"
   homepage "https://strace.io/"
-  url "https://github.com/strace/strace/releases/download/v5.1/strace-5.1.tar.xz"
-  sha256 "f5a341b97d7da88ee3760626872a4899bf23cf8dee56901f114be5b1837a9a8b"
+  url "https://github.com/strace/strace/releases/download/v5.2/strace-5.2.tar.xz"
+  sha256 "d513bc085609a9afd64faf2ce71deb95b96faf46cd7bc86048bc655e4e4c24d2"
 
   bottle do
     cellar :any_skip_relocation
