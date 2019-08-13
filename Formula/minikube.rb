@@ -1,8 +1,8 @@
 class Minikube < Formula
   desc "Run a Kubernetes cluster locally"
   homepage "https://github.com/kubernetes/minikube"
-  url "https://github.com/kubernetes/minikube/archive/v1.2.0.tar.gz"
-  sha256 "34544176451a9dbddf0ff053285efecbef69942e1b4a103452862dc6ee31ebd4"
+  url "https://github.com/kubernetes/minikube/archive/v1.3.0.tar.gz"
+  sha256 "8bde0a2ddddded46383ec4a09727382e0ed584a964abb1f6bfcc87545c652206"
 
   bottle do
     cellar :any_skip_relocation
