@@ -6,7 +6,7 @@ class Minikube < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d61f5a0ebb1921c6a651214d41b8c9133a9ee8375ece00972b4478417cf3c8f3" => :x86_64_linux
+    sha256 "f31c2cb30b23f4eeecccb7cca9efecb2597317295cb9040bb77250d7917eb5dc" => :x86_64_linux
   end
 
   depends_on "go" => :build
