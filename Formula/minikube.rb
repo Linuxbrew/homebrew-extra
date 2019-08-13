@@ -1,8 +1,8 @@
 class Minikube < Formula
   desc "Run a Kubernetes cluster locally"
   homepage "https://github.com/kubernetes/minikube"
-  url "https://github.com/kubernetes/minikube/archive/v1.2.0.tar.gz"
-  sha256 "34544176451a9dbddf0ff053285efecbef69942e1b4a103452862dc6ee31ebd4"
+  url "https://github.com/kubernetes/minikube/archive/v1.3.1.tar.gz"
+  sha256 "7aa57e5896852c499f1687fbc424abf93645e1801fc9f8c2833e0affbb76eb41"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,6 +12,7 @@ class Minikube < Formula
   depends_on "go" => :build
 
   def install
+    ENV.deparallelize
     ENV["GOOS"] = "linux"
     ENV["GOARCH"] = "amd64"
 
