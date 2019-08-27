@@ -1,4 +1,8 @@
-# Linuxbrew Extra
+# Deprecated: Linuxbrew Extra
+
+All formulae from this tap have been moved to [Homebrew/linuxbrew-core](https://github.com/Homebrew/linuxbrew-core).
+
+---
 
 [Linuxbrew Extra](https://github.com/Linuxbrew/homebrew-extra) is a collection of formulae for [Homebrew on Linux](https://github.com/Homebrew/brew) that are not dependencies of [core formulae](https://github.com/Homebrew/linuxbrew-core) and are specific to Linux.
 
